@@ -20,12 +20,17 @@ max: maximum centipawn loss for the tactic fen to be outputted
 '''
 def tactics_finder(capsule, min, max, depth):
     output = []
-    for i in range(len(capsule.pgn_array)):
+    for i in capsule.pgn_array:
         #here is where we go through each move and check engine evaluation
-        pgn_to_io = io.StringIO(capsule.pop())
+        pgn_to_io = io.StringIO(i)
         
         #imports the pgn into a python-chess board object
-        game = chess.pgn.read_game(pgn_to_io)
+
+        try:
+            game = chess.pgn.read_game(pgn_to_io)
+        except:
+            print("Unknown error, game not able to be imported")
+            continue
         board = game.board()
         count = 0
 
@@ -33,11 +38,21 @@ def tactics_finder(capsule, min, max, depth):
         for move in game.mainline_moves():
             board.push(move)
             info = engine.analyse(board, chess.engine.Limit(depth=depth))
+
+            #info["score"] is a PovScore object
             if info["score"].is_mate():
                 output.append(board.fen())
-            elif abs(info["score"].white().score()) >=min and abs(info["score"].white().score()) <=max:
+                break
+            elif abs(info["score"].relative.score()) >=min and abs(info["score"].white().score()) <=max:
                 output.append(board.fen())
-        return output
+                break
+    
+    print("> NUMBER OF GAMES ANALYZED: {}\n".format(len(capsule.pgn_array)))
+    return output
+
+'''
+Temporary interface for the app
+'''
 
 print("> File path of pgn file, ex \"master_games.pgn\": ")
 capsule = pgn_capsule(input())

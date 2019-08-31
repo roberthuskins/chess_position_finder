@@ -31,11 +31,3 @@ class pgn_capsule:
         
         self.pgn_array = parsed_pgn.split("SPLIT_FILE_HERE")
         del self.pgn_array[-1] #left with extra blank string at the back of the array due to split
-
-    #returns the last element of the pgn_array and deletes it from the object
-    def pop(self):
-        return self.pgn_array.pop()
-
-# test = pgn_capsule("master_games.pgn")
-# print(test.pop())
-# print(test.pop())
