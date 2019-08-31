@@ -1,5 +1,12 @@
 import re
 
+'''
+The pgn_capsule object takes in a single file path to a pgn file 
+and then converts the file into a list of strings of the pgn files 
+themselves. This is useful on its own, however it will be useful to
+pass into the pgn-parser library
+'''
+
 class pgn_capsule:
 
     pgn_array = []
@@ -17,8 +24,8 @@ class pgn_capsule:
             if "[" in file_as_array[i] or "]" in file_as_array[i]:
                 continue
             elif file_as_array[i]:
-                parsed_pgn+=file_as_array[i] + "\n"
-                if "0-1" in file_as_array[i] or "1-0" in file_as_array[i] or "1/2" in file_as_array[i]:
+                parsed_pgn+=file_as_array[i] + " "
+                if "0-1" in file_as_array[i] or "1-0" in file_as_array[i] or "1/2" in file_as_array[i] or "*" in file_as_array[i]:
                     parsed_pgn+="SPLIT_FILE_HERE"
         #the object will have a list of chess games in pgn format
         
@@ -29,6 +36,6 @@ class pgn_capsule:
     def pop(self):
         return self.pgn_array.pop()
 
-test = pgn_capsule("master_games.pgn")
-print(test.pop())
-print(test.pop())
+# test = pgn_capsule("master_games.pgn")
+# print(test.pop())
+# print(test.pop())
