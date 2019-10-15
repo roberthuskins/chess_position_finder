@@ -1,5 +1,3 @@
-import re
-
 '''
 The pgn_capsule object takes in a single file path to a pgn file 
 and then converts the file into a list of strings of the pgn files 
@@ -10,12 +8,11 @@ pass into the pgn-parser library
 class pgn_capsule:
 
     pgn_array = []
-    def __init__(self, file_path):
+    def __init__(self, game_string):
         parsed_pgn = ""
 
-        python_pgn_file = open(file_path)
-        file_as_array = python_pgn_file.readlines()
-        python_pgn_file.close()
+        file_as_array = game_string.split("\n")
+        
 
         for i in range(len(file_as_array)):
             # gets rid of trailing whitespace
