@@ -11,6 +11,7 @@ For example, if you upload the famous Opera House Game (the app supports bulk pg
 The app shout output...
 ![Imgur](https://i.imgur.com/Zd10K9V.png)
 
+To view the position for yourself, you can post the FEN string ... <br><b>r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R w KQkq - 1 12</b><br>into an analysis board such as [lichess'](lichess.org/analysis).
 
 ## Requirements:
 Flask: https://github.com/pallets/flask <br>
