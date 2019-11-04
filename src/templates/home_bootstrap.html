@@ -12,7 +12,7 @@
 </head>
 <body>
         <!--https://getbootstrap.com/docs/4.0/components/forms/-->
-        <form id = "main_input" method="POST">
+        <form id = "main_input" method="POST" enctype=multipart/form-data>
                 <div class="form-group">
                   <label>Stockfish Depth</label>
                   <input type="text" class="form-control" name="depth">
@@ -22,9 +22,10 @@
                   <input type="text" class="form-control" name="max">
                 </div>
                 <div class="form-group">
-                    <label>Paste PGN file below</label>
-                  <textarea class="form-control" name = "chess_game" rows="3"></textarea>
+                    <label>Upload PGN File</label><br>
+                  <input type =file name = chess_game >
                 </div>
+                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
   </body>

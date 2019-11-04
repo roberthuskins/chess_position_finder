@@ -21,7 +21,7 @@ def tactics_finder(capsule, min, max, depth):
     engine = chess.engine.SimpleEngine.popen_uci("engine/stockfish-10-64")
     output = []
 
-    print(capsule.pgn_array)
+
 
     number_of_failed_parses = 0
     for i in capsule.pgn_array:
