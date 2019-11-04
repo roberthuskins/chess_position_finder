@@ -2,7 +2,7 @@
 
 Imports a chess pgn file and analyses it with the [Stockfish](https://stockfishchess.org/) chess engine. Outputs a list of chess positions for the user to try to solve for themselves. 
 
-For example, if you upload the famous Opera House Game (the app supports bulk pgn files as well) with the following parameters...
+For example, if you upload the famous [Opera House Game](https://en.wikipedia.org/wiki/Opera_Game) (the app supports bulk pgn files as well) with the following parameters...
 ![Imgur](https://i.imgur.com/3e6dNGl.png)
 
 
